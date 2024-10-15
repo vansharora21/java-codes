@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Q19_CountDigitAppearance {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a multiple-digit number: ");
+        int number = sc.nextInt();
+
+        System.out.print("Enter a single-digit number: ");
+        int digit = sc.nextInt();
+
+        int count = 0;
+        while (number != 0) {
+            if (number % 10 == digit) {
+                count++;
+            }
+            number /= 10;
+        }
+
+        System.out.println("The digit " + digit + " appears " + count + " times.");
+    }
+}

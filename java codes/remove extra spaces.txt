@@ -1,0 +1,11 @@
+import java.util.Scanner;
+
+public class Q52_RemoveExtraSpaces {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a sentence with extra spaces: ");
+        String sentence = sc.nextLine().trim();
+        String result = sentence.replaceAll("\\s+", " ");  // Replace multiple spaces with a single space
+        System.out.println("Sentence after removing extra spaces: " + result);
+    }
+}

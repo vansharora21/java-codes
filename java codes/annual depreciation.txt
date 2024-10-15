@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Q4_DepreciationCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter purchase price: ");
+        double purchasePrice = sc.nextDouble();
+        System.out.print("Enter salvage value: ");
+        double salvageValue = sc.nextDouble();
+        System.out.print("Enter years of service: ");
+        int years = sc.nextInt();
+
+        double annualDepreciation = (purchasePrice - salvageValue) / years;
+        System.out.println("Annual Depreciation: Rs " + annualDepreciation);
+    }
+}

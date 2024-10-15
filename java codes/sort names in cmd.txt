@@ -1,0 +1,15 @@
+import java.util.Arrays;
+
+public class Q47_SortNames {
+    public static void main(String[] args) {
+        if (args.length == 0) {
+            System.out.println("No names provided!");
+        } else {
+            Arrays.sort(args);
+            System.out.println("Sorted names:");
+            for (String name : args) {
+                System.out.println(name);
+            }
+        }
+    }
+}

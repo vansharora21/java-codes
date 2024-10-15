@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Q27_DescendingOrderCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of elements (N): ");
+        int N = sc.nextInt();
+
+        int[] numbers = new int[N];
+        System.out.println("Enter the numbers:");
+        for (int i = 0; i < N; i++) {
+            numbers[i] = sc.nextInt();
+        }
+
+        boolean isDescending = true;
+        for (int i = 1; i < N; i++) {
+            if (numbers[i] > numbers[i - 1]) {
+                isDescending = false;
+                break;
+            }
+        }
+
+        if (isDescending) {
+            System.out.println("The numbers are in descending order.");
+        } else {
+            System.out.println("The numbers are not in descending order.");
+        }
+    }
+}

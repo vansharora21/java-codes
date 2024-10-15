@@ -1,0 +1,50 @@
+class InsufficientBalanceException extends Exception {
+    public InsufficientBalanceException(String message) {
+        super(message);
+    }
+}
+
+class CreditCardAccount {
+    private double balance;
+    private static final double WITHDRAWAL_FEE = 50;
+
+    public CreditCardAccount(double initialBalance) {
+        balance = initialBalance;
+    }
+
+    public void withdraw(double amount) throws InsufficientBalanceException {
+        double totalWithdrawal = amount + WITHDRAWAL_FEE;
+        if (balance - totalWithdrawal < 0) {
+            throw new InsufficientBalanceException("Withdrawal denied! Balance cannot go below Rs 0 after applying fees.");
+        } else {
+            balance -= totalWithdrawal;
+            System.out.println("Withdrawal successful! Current balance: Rs " + balance + " (Withdrawal fee: Rs " + WITHDRAWAL_FEE + ")");
+        }
+    }
+
+    public void checkBalance() {
+        System.out.println("Current balance: Rs " + balance);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        CreditCardAccount account = new CreditCardAccount(1000);  // Initial balance Rs 1000
+
+        account.checkBalance();
+
+        try {
+            account.withdraw(900);  // Withdraw Rs 900, should throw an exception
+        } catch (InsufficientBalanceException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            account.withdraw(800);  // Withdraw Rs 800, should be successful
+        } catch (InsufficientBalanceException e) {
+            System.out.println(e.getMessage());
+        }
+
+        account.checkBalance();
+    }
+}

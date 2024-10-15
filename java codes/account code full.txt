@@ -1,0 +1,94 @@
+class Account {
+    protected String depositorName;
+    protected int accountNumber;
+    protected double balance;
+
+    // Constructor to initialize account
+    public Account(String depositorName, int accountNumber, double balance) {
+        this.depositorName = depositorName;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    // Method to deposit money
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println(amount + " deposited. New balance: " + balance);
+    }
+
+    // Method to withdraw money
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println(amount + " withdrawn. New balance: " + balance);
+        } else {
+            System.out.println("Insufficient balance.");
+        }
+    }
+
+    // Method to display balance
+    public void displayBalance() {
+        System.out.println("Balance: " + balance);
+    }
+}
+class SavAcc extends Account {
+    private double interestRate;
+
+    // Constructor to initialize savings account with interest rate
+    public SavAcc(String depositorName, int accountNumber, double balance, double interestRate) {
+        super(depositorName, accountNumber, balance);
+        this.interestRate = interestRate;
+    }
+
+    // Method to compound interest
+    public void compoundInterest() {
+        double interest = balance * (interestRate / 100);
+        balance += interest;
+        System.out.println("Interest compounded. New balance: " + balance);
+    }
+}
+class CurrAcc extends Account {
+    private double minimumBalance;
+    private double serviceCharge;
+
+    // Constructor to initialize current account with minimum balance and service charge
+    public CurrAcc(String depositorName, int accountNumber, double balance, double minimumBalance, double serviceCharge) {
+        super(depositorName, accountNumber, balance);
+        this.minimumBalance = minimumBalance;
+        this.serviceCharge = serviceCharge;
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        super.withdraw(amount);  // Perform withdrawal
+        if (balance < minimumBalance) {
+            balance -= serviceCharge;
+            System.out.println("Service charge of " + serviceCharge + " imposed due to low balance. New balance: " + balance);
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        // Savings Account Example
+        SavAcc savingsAccount = new SavAcc("Alice", 101, 2000.0, 5.0);
+        System.out.println("Savings Account:");
+        savingsAccount.displayBalance();  // Show initial balance
+        savingsAccount.deposit(500);      // Deposit money
+        savingsAccount.compoundInterest();  // Compound interest
+        savingsAccount.withdraw(300);     // Withdraw money
+        savingsAccount.displayBalance();  // Display balance after all transactions
+
+        System.out.println();
+
+        // Current Account Example
+        CurrAcc currentAccount = new CurrAcc("Bob", 102, 1000.0, 1500.0, 50.0);
+        System.out.println("Current Account:");
+        currentAccount.displayBalance();  // Show initial balance
+        currentAccount.deposit(700);      // Deposit money
+        currentAccount.withdraw(500);     // Withdraw money
+        currentAccount.displayBalance();  // Check balance after withdrawal
+        currentAccount.withdraw(800);     // Withdraw to trigger service charge
+        currentAccount.displayBalance();  // Show final balance
+    }
+}
+

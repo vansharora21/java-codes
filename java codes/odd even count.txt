@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Q14_CountEvenOdd {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of elements (N): ");
+        int N = sc.nextInt();
+        int evenCount = 0, oddCount = 0;
+
+        System.out.println("Enter the numbers:");
+        for (int i = 0; i < N; i++) {
+            int number = sc.nextInt();
+            if (number % 2 == 0) {
+                evenCount++;
+            } else {
+                oddCount++;
+            }
+        }
+
+        System.out.println("Even numbers count: " + evenCount);
+        System.out.println("Odd numbers count: " + oddCount);
+    }
+}

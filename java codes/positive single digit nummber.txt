@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class Q2_CoinCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a single-digit number (1-5): ");
+        int number = sc.nextInt();
+
+        int[] coinValues = {50, 25, 20, 10, 5};
+        if (number >= 1 && number <= 5) {
+            int total = number * coinValues[number - 1];
+            System.out.println("Total amount in paise: " + total + " paise");
+            System.out.println("Total amount in rupees: Rs " + total / 100.0);
+        } else {
+            System.out.println("Invalid number!");
+        }
+    }
+}

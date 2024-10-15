@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class Q50_CountWordsCharacters {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String sentence = sc.nextLine();
+
+        int wordCount = sentence.split("\\s+").length;  // Split by whitespace to get words
+        int charCount = sentence.length();
+
+        System.out.println("Number of words: " + wordCount);
+        System.out.println("Number of characters: " + charCount);
+    }
+}

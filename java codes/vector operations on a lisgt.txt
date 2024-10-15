@@ -1,0 +1,37 @@
+import java.util.Scanner;
+import java.util.Vector;
+
+public class Q55_ModifyList {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Vector<String> list = new Vector<>();
+
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Orange");
+        list.add("Mango");
+
+        System.out.println("Current list: " + list);
+
+        // a) Delete an item
+        System.out.print("Enter item to delete: ");
+        String itemToDelete = sc.nextLine();
+        list.remove(itemToDelete);
+        System.out.println("After deletion: " + list);
+
+        // b) Add an item at a specified location
+        System.out.print("Enter item to add: ");
+        String itemToAdd = sc.nextLine();
+        System.out.print("Enter index to add the item at: ");
+        int index = sc.nextInt();
+        list.add(index, itemToAdd);
+        System.out.println("After adding at index: " + list);
+
+        // c) Add an item at the end
+        list.add("Grapes");
+        System.out.println("After adding item at end: " + list);
+
+        // d) Print the list
+        System.out.println("Final list: " + list);
+    }
+}

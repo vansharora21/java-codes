@@ -1,0 +1,29 @@
+class Money {
+    int rupee;
+    int paisa;
+
+    // Constructor
+    public Money(int rupee, int paisa) {
+        this.rupee = rupee;
+        this.paisa = paisa;
+    }
+
+    // Method to set money
+    public void setMoney(int rupee, int paisa) {
+        this.rupee = rupee;
+        this.paisa = paisa;
+    }
+
+    // Method to display money
+    public void show() {
+        System.out.println("Rupees: " + rupee + ", Paisa: " + paisa);
+    }
+
+    public static void main(String[] args) {
+        Money money = new Money(50, 75);
+        money.show();
+
+        money.setMoney(100, 25);
+        money.show();
+    }
+}

@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Q15_MaxUsingDoWhile {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of elements (N): ");
+        int N = sc.nextInt();
+
+        int i = 1, max;
+        System.out.print("Enter number 1: ");
+        max = sc.nextInt();
+
+        do {
+            System.out.print("Enter number " + (i + 1) + ": ");
+            int number = sc.nextInt();
+            if (number > max) {
+                max = number;
+            }
+            i++;
+        } while (i < N);
+
+        System.out.println("Maximum number is: " + max);
+    }
+}

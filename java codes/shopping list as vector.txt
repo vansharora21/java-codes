@@ -1,0 +1,15 @@
+import java.util.Vector;
+
+public class Q54_ShoppingList {
+    public static void main(String[] args) {
+        if (args.length != 5) {
+            System.out.println("Please enter exactly 5 items.");
+        } else {
+            Vector<String> shoppingList = new Vector<>();
+            for (String item : args) {
+                shoppingList.add(item);
+            }
+            System.out.println("Your shopping list: " + shoppingList);
+        }
+    }
+}

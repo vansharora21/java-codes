@@ -1,0 +1,72 @@
+// Interface Sports
+interface Sports {
+    float sportWt = 0;
+
+    void putWt();
+}
+
+// Base class Student
+class Student {
+    int roll_no;
+
+    // Method to get the roll number
+    public void get_no(int roll_no) {
+        this.roll_no = roll_no;
+    }
+
+    // Method to display the roll number
+    public void put_no() {
+        System.out.println("Roll number: " + roll_no);
+    }
+}
+
+// Derived class Test that extends Student
+class Test extends Student {
+    float part1, part2;
+
+    // Method to input the marks
+    public void getMarks(float part1, float part2) {
+        this.part1 = part1;
+        this.part2 = part2;
+    }
+
+    // Method to display the marks
+    public void putMarks() {
+        System.out.println("Marks obtained:");
+        System.out.println("Part 1: " + part1);
+        System.out.println("Part 2: " + part2);
+    }
+}
+
+// Final class Result that extends Test and implements Sports
+class Result extends Test implements Sports {
+    float total;
+    float sportWt;
+
+    // Implementing method from the Sports interface
+    @Override
+    public void putWt() {
+        System.out.println("Sports Weight: " + sportWt);
+    }
+
+    // Method to calculate and display the total score
+    public void display() {
+        total = part1 + part2 + sportWt;
+        put_no();
+        putMarks();
+        putWt();
+        System.out.println("Total Score: " + total);
+    }
+}
+
+// Main class to test the implementation
+public class Main {
+    public static void main(String[] args) {
+        // Creating object of Result class
+        Result result = new Result();
+        result.get_no(123);  // Input roll number
+        result.getMarks(85, 90);  // Input marks
+        result.sportWt = 9;  // Set sports weight
+        result.display();  // Display final result
+    }
+}

@@ -1,0 +1,29 @@
+class Person {
+    String fname;
+    String lname;
+
+    // Constructor
+    public Person(String fname, String lname) {
+        this.fname = fname;
+        this.lname = lname;
+    }
+
+    // Method to set value
+    public void setValue(String fname, String lname) {
+        this.fname = fname;
+        this.lname = lname;
+    }
+
+    // Method to display value
+    public void show() {
+        System.out.println("First Name: " + fname + ", Last Name: " + lname);
+    }
+
+    public static void main(String[] args) {
+        Person person = new Person("John", "Doe");
+        person.show();
+
+        person.setValue("Jane", "Smith");
+        person.show();
+    }
+}
